@@ -1,0 +1,172 @@
+
+body{
+    color:#333;
+}
+a,a:hover{
+    text-decoration: none;
+    color:#333;
+}
+/*头部*/
+/*第一行*/
+.header .tabs-header >.row>div{
+    margin: 5px 0;
+    height:30px;
+    line-height:30px;
+}
+.header .tabs-header >.row>div.active{
+    background:#d9534f;
+    color:#fff;
+    border-radius:5px;
+}
+.header .btns{
+    height:40px;
+    padding:10px;
+}
+.header .btns a{
+   margin:0 5px;
+}
+
+/*第二行*/
+.header>.row-two{
+    background:#dbdbdb;
+    margin:2px 0;
+    height:2px;
+}
+.header>.row-two .row>div.active{
+    background:#d9534f;
+    height:2px;
+}
+/*第三行*/
+.header>.row-three{
+    margin:-2px 0 0 0;
+    height:30px;
+    line-height:30px;
+    background:#f8f8f8;
+    border-radius:0 0 5px 5px;
+    border:1px solid #dbdbdb;
+    border-top:none;
+    padding-left:5px;
+}
+
+/*在小频下显示选项卡*/
+.header>.row-four .tab-content>div{
+    border:1px solid #dbdbdb;
+    border-top:none;
+    border-radius:0 0 5px 5px;
+    height:30px;
+    line-height:30px;
+    padding-left:5px;
+}
+
+/*搜索*/
+/*第一行*/
+.search>.row-one{
+    margin:10px 0;
+    height:30px;
+    line-height:30px;
+}
+.search>.row-one>span{
+    margin:0 5px;
+}
+/*第二行*/
+.search>.row-two{
+    margin:0;
+    height:30px;
+    background:#f8f8f8;
+    border-bottom:1px solid #dbdbdb;
+}
+
+/*第三行*/
+.search>.row-three{
+    margin:5px 0;
+}
+.search>.row-three>ul>li{
+    width:80px;
+    text-align: center;
+}
+.search>.row-three>ul>li:first-child{
+    width:120px;
+    text-align:left;
+}
+.search>.row-three>ul>li:last-child{
+    border:1px #dbdbdb solid;
+    text-align:center;
+}
+.search>.row-three>ul>li.active>a{
+    background:#d9534f;
+    color:#ffffff;
+    padding:2px 10px;
+    border-radius:5px;
+}
+
+/*第四行*/
+.search>.row-four{
+    margin:0;
+    height:40px;
+    line-height:40px;
+    background:#dbdbdb;
+    border:1px solid #c0c0c0;
+}
+.search>.row-four>ul>li{
+    padding:0 5px;
+}
+.search>.row-four>ul>li.active>a{
+    background:#d9534f;
+    color:#ffffff;
+    padding:5px 10px;
+}
+
+/*第五行*/
+.search>.row-five{
+    margin:0;
+    height:35px;
+    line-height:30px;
+    background:#f8f8f8;
+    border:1px solid #dbdbdb;
+    border-top:none;
+    padding:0 5px;
+}
+
+/*在小频下显示筛选的内容*/
+.search-phone{
+    height:40px;
+}
+.search-phone>ul{
+    margin:5px 0;
+    height:35px;
+    line-height:35px;
+    border:1px solid #dbdbdd;
+
+}
+
+.search-phone>ul>li{
+
+    text-align: center;
+    display: inline-block;
+    height:25px;
+    line-height:25px;
+    border-right:1px solid #dbdbdb;
+    margin-top: 3px;
+}
+.search-phone>ul>.menu{
+    width:100%;
+}
+
+
+
+
+
+
+/*表格*/
+.table>thead>tr{
+    background:#FCF8E3;
+}
+
+/*尾部*/
+.footer{
+    height:40px;
+    background:#A8251D;
+    line-height: 40px;
+    text-align: center;
+    color:#ffffff;
+}

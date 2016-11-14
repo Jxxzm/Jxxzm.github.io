@@ -1,0 +1,66 @@
+<div class="editingarea">
+    {{model}}
+    <div class="c_flex"><span class="c_flexible"></span></div>
+    <div class="Topictitle">添加试卷</div>
+    <div class="c_editview">
+        <div class="information">
+            <div class="informationtop">
+                <b style="float:left">试卷名称：</b>
+                <b><input type="text" ng-model="model.title" style="width: 310px"/></b>
+            </div>
+            <div class="informationdown">
+                <div class="informationdownleft">
+                    <b style="float:left">试卷说明：</b>
+                    <b><textarea ng-model="model.desc"></textarea></b>
+                </div>
+
+                <div class="clear"></div>
+            </div>
+            <div class="informationtop">
+                <b style="float:left">所属方向：</b>
+                <b>
+                    <select  ng-model="model.departmentId"
+                            ng-options="department.id as department.name for department in departments">
+                    </select>
+                </b>
+            </div>
+            <div class="informationtop">
+                <b style="float:left">答题时间：</b>
+                <b>
+                    <input type="text" ng-model="model.at">小时
+                </b>
+            </div>
+        </div>
+        <div class="c_condition">
+            <b style="float: right">
+                <span class="pl5">试卷总分：</span>
+                <span class="pl5"><input type="text"  ng-model="model.tt"/></span>
+            </b>
+            <span class="icon_add" style="float: left">
+                <em class="icon_r" style="float: left">
+                    <a href="#/PaperAddSubject/dpId/0/typeId/0/topicId/0/levelId/0">添加题目</a>
+                </em></span>
+            <span class="icon_add" style="float: left"><em class="icon_r" style="float: left">试卷预览</em></span>
+        </div>
+        <div class="divtable">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tab1">
+                <tbody>
+                <tr  ng-repeat="s in model.subjects">
+                    <th  class="tc" width="300" ><span>{{s.stem}}</span></th>
+                    <th class="tc"><span>{{s.type}}</span></th>
+                    <th class="tc"><span>{{s.topic}}</span></th>
+                    <th class="tc"><span>{{s.level}}</span></th>
+                    <th class="tc"><span><input type="text" value="{{$index}}"></span></th>
+                    <th class="tc"><span>操作</span></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="btn_left">
+            <span class="btnL"><em class="btnR">保存</em></span>
+        </div>
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+</div>

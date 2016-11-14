@@ -1,0 +1,30 @@
+a,a:hover{
+    color:#333;
+    text-decoration: none;
+}
+/*头部*/
+.header{
+    background:#00ae66;
+    height:60px;
+}
+.xx{
+    background: #fdffa7;
+}
+.header >.left> ul >li{
+    line-height: 60px;
+    color:#ffffff;
+    font-size: 20px;
+}
+.header >.right> ul{
+    margin:10px 10px;
+    margin-bottom: 0;
+}
+.header >.right> ul >li{
+    color:#ffffff;
+}
+
+
+.imgs{
+    margin-top:-60px;
+    padding:0;
+}

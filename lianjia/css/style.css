@@ -1,0 +1,88 @@
+a,a:hover{
+    color:#555;
+}
+/*头部*/
+.header{
+    height:254px;
+    background: url("../images/bg.jpg") no-repeat;
+    background-size: cover;
+    -webkit-background-origin:border-box;
+    background-origin:border-box;
+}
+.header>.row-one{
+    margin-top: 12px;
+}
+.header>.row-one .label{
+    background:#404040;
+    color:#ffffff;
+    border-radius:10px;
+    padding:4px 8px;
+   display: inline-block;
+    margin-top: 5px;
+}
+.header  .options>ul{
+        margin-left:10px;
+}
+/*第二行*/
+.header>.row-two>h1{
+    color:#ffffff;
+    margin:0;
+}
+.header>.row-two>h3{
+    color:#ffffff;
+}
+
+
+/*第三行*/
+.header>.row-three{
+    margin-top:60px;
+}
+
+/*第二部分*/
+.logo{
+    height:120px;
+    border-bottom:1px solid #c5c5c5;
+}
+.logo ul{
+    margin-top:30px;
+}
+.logo ul>li:last-child{
+    margin-top:10px;
+}
+
+/*第三部分*/
+.carousels{
+    background:#F4F4F4;
+    padding:10px 0;
+}
+.carousels .item img{
+    width:100%;
+}
+.carousels .item .carousel-caption{
+    color: #fdffa7;
+}
+
+
+/*第四部分*/
+.house > .row-one{
+    height:40px;
+    line-height: 40px;
+    border-top:1px solid #C5C5C5;
+    border-bottom:1px solid #C5C5C5;
+    padding: 0 10px;
+}
+.house .row-two{
+    padding:15px 10px 5px;
+    border-bottom:1px solid #C5C5C5;
+}
+.house .row-two .media-body .media-heading{
+    font-weight:bold;
+    margin:0;
+}
+.house .row-two .media-body ul{
+    padding:0;
+    margin:0;
+}
+.house .row-two .media-body ul li a{
+    font-size:12px;
+}

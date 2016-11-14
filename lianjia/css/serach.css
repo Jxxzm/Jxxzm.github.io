@@ -1,0 +1,62 @@
+a,a:hover{
+    color:#333;
+    text-decoration: none;
+}
+/*头部*/
+.header{
+    background:#00ae66;
+    height:60px;
+}
+.header >.left> ul >li{
+    line-height: 60px;
+    color:#ffffff;
+    font-size: 20px;
+}
+.header >.right> ul{
+    margin:10px 10px;
+}
+.header >.right> ul >li{
+    color:#ffffff;
+}
+/*搜索*/
+.search{
+    height:80px;
+    line-height:120px;
+    margin:0 ;
+    padding:20px 10px;
+    background:#f4f4f4;
+}
+.search label{
+    background:#ffffff;
+    color:#00ae66;
+}
+
+
+/*选项卡*/
+.options{
+    height:60px;
+}
+.options>ul{
+    border:1px solid #c5c5c5;
+    height:60px;
+}
+.options>ul>li{
+    line-height: 60px;
+    border-right:1px solid #c5c5c5;
+}
+.options>ul>li>a{
+    font-weight: bold;
+}
+
+.house .media{
+    border-bottom:1px solid #C5C5C5;
+    padding:10px 40px;
+}
+.house .media .media-body .media-heading{
+    margin:0;
+    font-weight: bold;
+    font-size:16px;
+}
+.house .media .media-body p{
+    margin:0;
+}

@@ -1,0 +1,33 @@
+1.侧边栏动画
+	（1）让所有的二级菜单默认收起。
+			$(".baseUI>li>ul").slideUp("fast");
+	（2）默认展开第一个列表
+			$(".baseUI>li>ul").eq(0).stop().slideDown();
+	（3）点击事件，实现菜单的切换
+			$(".baseUI li").off("click");
+	        $(".baseUI li").on("click",function(){
+	        	//先判断该点击的选项是否隐藏
+	            if($(this).children("ul").css("display")=="none"){
+	                //先清除所有样式
+	                $(".baseUI li").children("ul").hide();
+	                //给当前点击元素展开列表
+	                $(this).children("ul").slideDown();
+	            }
+	        });	
+	(4)给二级菜单再点击时，添加背景色
+			//加载页面用load();
+			$(".baseUI>li>ul>li").off("click")
+	        $(".baseUI>li>ul>li").on("click",function(){
+	            if(!$(this).hasClass("current")){
+	                //先清除所有的背景颜色
+	                $(".baseUI>li>ul>li").removeClass("current");
+	                //给当前点击列表添加背景
+	                $(this).addClass("current");
+
+	                //加载页面	
+	                var url=$(this).attr("url");
+	                $(".right").load(url);
+
+	            }
+	        });
+					        		

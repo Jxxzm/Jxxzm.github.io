@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../frameworks/bootstrap-3.3.0-dist/css/bootstrap.min.css">
+    <script src="../frameworks/jquery-2.1.4/jquery.min.js"></script>
+    <script src="../frameworks/bootstrap-3.3.0-dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js "></script>
+</head>
+<body>
+    <div class="container">
+        <!--头部-->
+        <div class="header">
+
+            <!--第一行-->
+                <div class="row-one row">
+                    <div class="col-sm-3 col-xs-6">
+                        <a href="#"><img src="images/logo.png" alt="logo"></a>
+                    </div>
+                    <!--在小屏下隐藏-->
+                    <div class="col-sm-6 tabs-header hidden-xs">
+                        <div class="row text-center">
+                            <div class="col-sm-4">全体画像</div>
+                            <div class="col-sm-4 active">群体画像</div>
+                            <div class="col-sm-4">个体画像</div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 btns col-xs-6">
+                        <a href="#" class="btn btn-danger btn-xs pull-right">登录</a>
+                        <a href="#" class="btn btn-danger btn-xs pull-right">注册</a>
+                    </div>
+                </div>
+
+                <!--第二行-->
+                <div class="row-two row">
+                    <div class="col-sm-3 col-xs-6"></div>
+                    <div class="col-sm-6 hidden-xs">
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4 active"></div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6"></div>
+                </div>
+
+                <div class="row-four visible-xs">
+                    <ul class="nav nav-tabs">
+                        <li><a href="#all" data-toggle="tab">全体画像</a></li>
+                        <li class="active"><a href="#group" data-toggle="tab">群体画像</a></li>
+                        <li><a href="#person" data-toggle="tab">个体画像</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="all" class="tab-pane">全体画像是描述所有的人。。。。。</div>
+                        <div id="group" class="tab-pane active">群体画像是描述一群的人。。。。。</div>
+                        <div id="person" class="tab-pane">个体画像是描述一个的人。。。。。</div>
+                    </div>
+                </div>
+
+                <!--第三行-->
+                <div class="row-three row tabs-content hidden-xs">
+                    群体画像是对一群人的描述。。。。。
+                </div>
+            </div>
+
+
+            <!--搜索 在小频以上显示-->
+            <div class="search hidden-xs">
+                <!--第一行-->
+                <div class="row-one row">
+                    <strong>标签搜索：</strong>
+                    <span class="label label-danger">注册用户
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </span>
+                    <span class="label label-danger">股票
+                       <i class="glyphicon glyphicon-remove"></i>
+                    </span>
+                    <span class="label label-danger">3c产品
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </span>
+                </div>
+
+                <!--第二行-->
+                <div class="row-two row"></div>
+
+                <!--第三行-->
+                <div class="row-three row">
+                    <ul class="list-inline">
+                        <li><a href="#"><strong>访问频次：</strong></a></li>
+                        <li><a href="#">全部</a></li>
+                        <li  class="active"><a href="#">高频</a></li>
+                        <li><a href="#">中频</a></li>
+                        <li><a href="#">低频</a></li>
+                        <li class="pull-right"><a href="#"><span class="glyphicon glyphicon-plus"></span>多选</a></li>
+                    </ul>
+
+                    <ul class="list-inline">
+                        <li><a href="#"><strong>访客生命周期：</strong></a></li>
+                        <li><a href="#">全部</a></li>
+                        <li><a href="#">考察期</a></li>
+                        <li class="active"><a href="#">形成期</a></li>
+                        <li><a href="#">成熟期</a></li>
+                        <li><a href="#">衰退期</a></li>
+                        <li class="pull-right"><a href="#"><span class="glyphicon glyphicon-plus"></span>多选</a></li>
+                    </ul>
+
+                    <ul class="list-inline">
+                        <li><a href="#"><strong>交易生命周期：</strong></a></li>
+                        <li><a href="#">全部</a></li>
+                        <li><a href="#">考察期</a></li>
+                        <li><a href="#">形成期</a></li>
+                        <li class="active"><a href="#">成熟期</a></li>
+                        <li><a href="#">衰退期</a></li>
+                        <li class="pull-right"><a href="#"><span class="glyphicon glyphicon-plus"></span>多选</a></li>
+                    </ul>
+
+                    <ul class="list-inline">
+                        <li><a href="#"><strong>个人长期关注：</strong></a></li>
+                        <li><a href="#">全部</a></li>
+                        <li><a href="#">投资</a></li>
+                        <li><a href="#">理财</a></li>
+                        <li><a href="#">股票</a></li>
+                        <li class="active"><a href="#">基金</a></li>
+                        <li class="pull-right"><a href="#"><span class="glyphicon glyphicon-plus"></span>多选</a></li>
+                    </ul>
+
+                    <ul class="list-inline">
+                        <li><a href="#"><strong>个人购买倾向：</strong></a></li>
+                        <li><a href="#">全部</a></li>
+                        <li><a href="#">3c产品</a></li>
+                        <li><a href="#">服装</a></li>
+                        <li class="active"><a href="#">家电</a></li>
+                        <li class="pull-right"><a href="#"><span class="glyphicon glyphicon-plus"></span>多选</a></li>
+                    </ul>
+                </div>
+
+                <!--第四行-->
+                <div class="row-four row">
+                    <ul class="list-inline">
+                        <li><a href="#">今天</a></li>
+                        <li><a href="#">最近3天</a></li>
+                        <li class="active"><a href="#">最近7天</a></li>
+                        <li><a href="#">自选时间段</a></li>
+                    </ul>
+                </div>
+
+                <!--第五行-->
+                <div class="row-five row">
+                    尊敬的xx客户您好！
+                </div>
+
+            </div>
+            <!--在极小频下显示-->
+            <div class="search-phone visible-xs">
+               <ul class="row list-inline list-unstyled dropdown">
+                   <li class="col-xs-3" data-toggle="dropdown"><a href="#one">访客信息
+                        <span class="caret"></span>
+                   </a></li>
+                   <li class="col-xs-3" data-toggle="dropdown">
+                       <a href="#two">忠诚度
+                            <span class="caret"></span>
+                        </a>
+                   </li>
+                   <li class="col-xs-3" data-toggle="dropdown"><a href="#three">访问偏好
+                       <span class="caret"></span>
+                   </a>
+                   </li>
+                   <li class="col-xs-3" data-toggle="dropdown"><a href="#four">其他
+                       <span class="caret"></span>
+                   </a>
+                   </li>
+
+                   <!--下拉菜单-->
+
+                   <ul class="dropdown-menu menu" id="two">
+                       <li><a href="#">投资</a></li>
+                       <li><a href="#">理财</a></li>
+                       <li><a href="#">基金</a></li>
+                   </ul>
+                   <ul class="dropdown-menu menu" id="one">
+                   <li><a href="#">高频</a></li>
+                   <li><a href="#">中频</a></li>
+                   <li><a href="#">低频</a></li>
+               </ul>
+               </ul>
+            </div>
+
+            <!--表格-->
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>全选</th>
+                        <th>用户id</th>
+                        <th>性别</th>
+                        <th>注册类型</th>
+                        <th>年龄</th>
+                        <th>访问时长</th>
+                        <th>访问页面</th>
+                        <th>访问次数</th>
+                        <th>标签</th>
+                        <th>更多</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <input type="checkbox">1
+                        </td>
+                        <td>1001</td>
+                        <td>女</td>
+                        <td>注册</td>
+                        <td>21</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>小股民</td>
+                        <td>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">1
+                        </td>
+                        <td>1001</td>
+                        <td>女</td>
+                        <td>注册</td>
+                        <td>21</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>小股民</td>
+                        <td>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </td>
+                    </tr><tr>
+                        <td>
+                            <input type="checkbox">1
+                        </td>
+                        <td>1001</td>
+                        <td>女</td>
+                        <td>注册</td>
+                        <td>21</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>小股民</td>
+                        <td>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </td>
+                    </tr><tr>
+                        <td>
+                            <input type="checkbox">1
+                        </td>
+                        <td>1001</td>
+                        <td>女</td>
+                        <td>注册</td>
+                        <td>21</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>小股民</td>
+                        <td>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">1
+                        </td>
+                        <td>1001</td>
+                        <td>女</td>
+                        <td>注册</td>
+                        <td>21</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>小股民</td>
+                        <td>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">1
+                        </td>
+                        <td>1001</td>
+                        <td>女</td>
+                        <td>注册</td>
+                        <td>21</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>小股民</td>
+                        <td>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">1
+                        </td>
+                        <td>1001</td>
+                        <td>女</td>
+                        <td>注册</td>
+                        <td>21</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>小股民</td>
+                        <td>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">1
+                        </td>
+                        <td>1001</td>
+                        <td>女</td>
+                        <td>注册</td>
+                        <td>21</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>小股民</td>
+                        <td>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">1
+                        </td>
+                        <td>1001</td>
+                        <td>女</td>
+                        <td>注册</td>
+                        <td>21</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>小股民</td>
+                        <td>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox">1
+                        </td>
+                        <td>1001</td>
+                        <td>女</td>
+                        <td>注册</td>
+                        <td>21</td>
+                        <td>8</td>
+                        <td>6</td>
+                        <td>6</td>
+                        <td>小股民</td>
+                        <td>
+                            <span class="glyphicon glyphicon-search"></span>
+                        </td>
+                    </tr>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!--尾部-->
+            <div class="footer">
+                和讯网 | 大数据 | email:1205636467@qq.com
+            </div>
+
+    </div>
+</body>
+</html>

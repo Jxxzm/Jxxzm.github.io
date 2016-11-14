@@ -1,0 +1,351 @@
+<script>
+  //跳转到添加题目页面
+  $(".c_condition>.icon_add>.icon_r").off("click");
+    $(".c_condition>.icon_add>.icon_r").on("click",function(){
+        $(".right").load("tpl/subject/subjectAdd.html");
+    });
+    //封装，获取数据
+        // function loadJson($element,url){
+        //       var url="tpl/subject/data/"+url;
+        //       $.getJSON(url,function(data){
+        //           data.forEach(function(item,index){
+        //               var newa=$("<a href='#'>"+item.realName+"</a>");    
+        //               $element.find(".chose").append(newa); 
+        //           });
+        //      });
+        // }
+
+        // $("table tr").each(function(index,item){
+        //     var trName=item.className;
+        //     // console.log(trName);
+        //     switch(trName){
+        //           case "type":loadJson($(item),"type.json");
+        //           break;
+        //           case "department":loadJson($(item),"department.json");
+        //           break;
+        //           case "level":loadJson($(item),"level.json");
+        //           break;
+        //           case "topics":loadJson($(item),"topics.json");
+        //           break;
+        //     }
+        // });
+    //获取数据
+    //题型
+    //加载，改变样式
+    $.getJSON("tpl/subject/data/type.json",function(data){
+        data.forEach(function(item){
+              var newa=$("<a href='#'>"+item.realName+"</a>");
+              $(".type .chose").append(newa);
+              //给点击元素添加样式
+              $(".chose1>a").off("click");
+              $(".chose1>a").on("click",function(){
+              //清除所a标签有样式
+                   if(!$(this).hasClass("active3")){
+                         $(".chose1>a").removeClass("active3");
+                        $(this).addClass("active3");
+                        searchData();
+                   }   
+              });
+        });
+    });
+    //方向
+    $.getJSON("tpl/subject/data/department.json",function(data){
+        data.forEach(function(item){
+              var newa=$("<a href='#'>"+item.realName+"</a>");
+              $(".department .chose").append(newa);
+              $(".chose2>a").off("click");
+              $(".chose2>a").on("click",function(){
+                  if(!$(this).hasClass("active3")){
+                      $(".chose2>a").removeClass("active3");
+                      $(this).addClass("active3");
+                      searchData();
+                  }
+              });
+        });
+    });
+    //难度
+    $.getJSON("tpl/subject/data/level.json",function(data){
+        data.forEach(function(item){
+              var newa=$("<a href='#'>"+item.realName+"</a>");
+              $(".level .chose").append(newa);
+
+              $(".chose4>a").off("click");
+              $(".chose4>a").on("click",function(){
+                    if(!$(this).hasClass("active3")){
+                          $(".chose4>a").removeClass("active3");
+                          $(this).addClass("active3");
+                           searchData();
+                    }
+              });
+        });
+    });
+    //知识点
+    $.getJSON("tpl/subject/data/topics.json",function(data){
+        data.forEach(function(item){
+              var newa=$("<a href='#'>"+item.realName+"</a>");
+              $(".topics .chose").append(newa);
+
+              $(".chose3>a").off("click");
+              $(".chose3>a").on("click",function(){
+                  if(!$(this).hasClass("active3")){
+                      $(".chose3>a").removeClass("active3");
+                      $(this).addClass("active3");
+                       searchData();
+                  }
+              });
+        });
+    });
+
+
+    searchData();
+    // 封装筛选方法
+    function searchData(){
+      //声明一个空对象，用来承载用户的点击数据值
+      var searchObj={};
+      //拿到用户点击值，放在对象中
+      $(".chose").each(function(index,con){
+            var clickValue=$(con).children("a.active3").html();
+            //console.log(clickValue);
+            var tdHtml=$(con).parent().prev().html();
+            //console.log(tdHtml);
+            switch(tdHtml){
+                  case "题型":searchObj["type"]=clickValue;
+                  break;
+                  case "方向":searchObj["department"]=clickValue;
+                  break;
+                  case "知识点":searchObj["topics"]=clickValue;
+                  break;
+                  case "难度":searchObj["level"]=clickValue;
+                  break;
+
+            }
+      });
+
+      //从后台请求数据进行匹配
+      $.post("tpl/subject/data/paper.json",function(data){
+        //判断题型
+        if(searchObj.type!="全部"){
+              data=data.filter(function(item,index){
+                    return searchObj.type==item.type;
+
+              });
+              //console.log(data);
+        }
+        //判断方向
+        if(searchObj.department!="全部"){
+            data=data.filter(function(item,index){
+                  return searchObj.department==item.department;
+            });
+            //console.log(data);
+        }
+        //判断知识点
+        if(searchObj.topics!="全部"){
+              data=data.filter(function(item,index){
+                  return searchObj.topics==item.topics;
+              });
+              //console.log(data);
+        }
+        // 判断难度
+        if(searchObj.level!="全部"){
+            data=data.filter(function(item,index){
+                  return searchObj.level==item.level;
+            });
+        }
+
+
+
+        //清空div中的数据
+      $(".Catalogtitwo").each(function(index,con){
+            $(this).html("");
+            $(".Catalogcontentup").eq(index).html("");
+        });
+
+
+      // 遍历筛选出来的数据
+      data.forEach(function(item,index){
+            var str="";
+           // console.log(item);
+           for(var key in item){
+              switch(key){
+                    case "id":str+="题号："+item[key]+"&nbsp;&nbsp;&nbsp";
+                    break;
+                    case "type":str+="题型："+item[key]+"&nbsp;&nbsp;&nbsp";
+                    break;
+                    case "department":str+="方向："+item[key]+"&nbsp;&nbsp;&nbsp";
+                    break;
+                    case "level":str+="难度："+item[key]+"&nbsp;&nbsp;&nbsp";
+                    break;
+                    case "upPerson":str+="上传人："+item[key]+"&nbsp;&nbsp;&nbsp";
+                    break;
+                    case "upTime":str+"上传时间："+item[key]+"&nbsp;&nbsp;&nbsp";
+                    break;
+                    case "times":str+="次数："+item[key]+"&nbsp;&nbsp;&nbsp";
+                    break;
+              }
+              var p=$("<p>");
+              switch(key){
+                case "stem":p.html(item[key]);
+                break;
+                case "analysis":p.html(item[key]);
+                                p.attr("name","analysis");  
+                break;
+              }
+
+              $(".Catalogcontentup").eq(index).append(p);
+              //先让解析默认隐藏
+              $(".Catalogcontentup").eq(index).find("p[name='analysis']").hide();
+              $(".Catalogtitle input").off("click");
+              $(".Catalogtitle input").on("click",function(){
+                    if($(this).prop("checked")){
+                          $("p[name=analysis]").show();
+                    }else{
+                         $("p[name=analysis]").hide();
+                    }
+              });
+           }
+           $(".Catalogtitwo").eq(index).html(str);
+
+           
+
+
+
+
+      });
+
+
+
+
+
+
+
+
+
+
+      });
+
+      
+
+
+
+
+
+
+
+
+     }
+    
+
+    
+
+
+</script>
+
+				<div class="editingarea">
+                    <div class="c_flex"><span class="c_flexible"></span></div>
+                	<div class="c_editview">
+                   <div class="c_condition">
+                       <span><select><option>题干</option></select></span>
+                       <span class="pl5 " ><input type="text"></span>
+                       <span class="pl15 pr15 btn_gray ">查找</span>
+                       <span class="icon_add"><em class="icon_r">单个添加题目</em></span>
+                    </div>
+                    <div class="divtable">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tablea">
+                        	<tr class="type">
+                                <td align="center">题型</td>
+                                <td align="left">
+                                    <div class="chose chose1">
+                                    	<a href="#" class="active3">全部</a>
+                                        
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                            <tr class="department">
+                                <td align="center">方向</td>
+                                <td align="left">
+                                    <div class="chose chose2">
+                                    	<a href="#" class="active3">全部</a>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="topics">
+                            	<td align="center">知识点</td>
+                                <td align="left">
+                                    <div class="chose chose3">
+                                    	<a href="#" class="active3">全部</a>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="level">
+                                <td align="center">难度</td>
+                                <td align="left">
+                                    <div class="chose chose4">
+                                    	<a href="#" class="active3">全部</a>
+                                       
+                                    </div>
+                                </td>
+                                
+                            </tr>
+                        </table>
+                    </div>
+                       <div class="Catalog">
+                           <div class="Catalog_right">
+                               <div class="Catalogtitle">总计<em>15552</em>道题&nbsp;&nbsp;
+                               <input type="checkbox" /><b>显示答案和解析</b>&nbsp;&nbsp;<div><a href="#" class="Thispage2">本页全部审核通过</a>				
+                               	<!--
+                               	<i>1</i>
+                                <a href="#" class="pageone">前</a>
+                                <a href="#" class="pagetwo">后</a>
+                                -->
+                                </div></div>
+                               <div class="Catalog_rightnei">
+                                   <div class="Catalogtitwo">题号：25544&nbsp;&nbsp;题型：还是得&nbsp;&nbsp;难度：订餐&nbsp;&nbsp;上传人：女性司机&nbsp;&nbsp;来源：才能使得&nbsp;&nbsp;上传时间:220255&nbsp;&nbsp;组卷次数：<em>0</em></div>
+                                   <div class="Catalogcontent">
+                                       <div class="Catalogcontentup">题型</div>
+                                       <div class="Catalogcontentdown"><a href="#">审核通过</a><a href="#">审核不通过</a><a href="#">删除题目</a></div>
+                                   </div>
+                               </div>
+                               <div class="Catalog_rightnei">
+                                   <div class="Catalogtitwo">题号：25544&nbsp;&nbsp;题型：还是得&nbsp;&nbsp;难度：订餐&nbsp;&nbsp;上传人：女性司机&nbsp;&nbsp;来源：才能使得&nbsp;&nbsp;上传时间:220255&nbsp;&nbsp;组卷次数：<em>0</em></div>
+                                   <div class="Catalogcontent">
+                                       <div class="Catalogcontentup">题型</div>
+                                       <div class="Catalogcontentdown"><a href="#">加入试卷</a></div>
+                                   </div>
+                               </div>
+                               <div class="Catalog_rightnei">
+                                   <div class="Catalogtitwo">题号：25544&nbsp;&nbsp;题型：还是得&nbsp;&nbsp;难度：订餐&nbsp;&nbsp;上传人：女性司机&nbsp;&nbsp;来源：才能使得&nbsp;&nbsp;上传时间:220255&nbsp;&nbsp;组卷次数：<em>0</em></div>
+                                   <div class="Catalogcontent">
+                                       <div class="Catalogcontentup">题型</div>
+                                       <div class="Catalogcontentdown"><a href="#">加入试卷</a></div>
+                                   </div>
+                               </div>
+
+                               <div class="Catalog_rightnei">
+                                   <div class="Catalogtitwo">题号：25544&nbsp;&nbsp;题型：还是得&nbsp;&nbsp;难度：订餐&nbsp;&nbsp;上传人：女性司机&nbsp;&nbsp;来源：才能使得&nbsp;&nbsp;上传时间:220255&nbsp;&nbsp;组卷次数：<em>0</em></div>
+                                   <div class="Catalogcontent">
+                                       <div class="Catalogcontentup">题型</div>
+                                       <div class="Catalogcontentdown"><a href="#">加入试卷</a></div>
+                                   </div>
+                               </div>
+                               <div class="Catalog_rightnei">
+                                   <div class="Catalogtitwo">题号：25544&nbsp;&nbsp;题型：还是得&nbsp;&nbsp;难度：订餐&nbsp;&nbsp;上传人：女性司机&nbsp;&nbsp;来源：才能使得&nbsp;&nbsp;上传时间:220255&nbsp;&nbsp;组卷次数：<em>0</em></div>
+                                   <div class="Catalogcontent">
+                                       <div class="Catalogcontentup">题型</div>
+                                       <div class="Catalogcontentdown"><a href="#">加入试卷</a></div>
+                                   </div>
+                               </div>
+                               <div class="Catalog_rightnei">
+                                   <div class="Catalogtitwo">题号：25544&nbsp;&nbsp;题型：还是得&nbsp;&nbsp;难度：订餐&nbsp;&nbsp;上传人：女性司机&nbsp;&nbsp;来源：才能使得&nbsp;&nbsp;上传时间:220255&nbsp;&nbsp;组卷次数：<em>0</em></div>
+                                   <div class="Catalogcontent">
+                                       <div class="Catalogcontentup">题型</div>
+                                       <div class="Catalogcontentdown"><a href="#">加入试卷</a></div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="clear"></div>
+                       </div>
+                    </div>
+                </div>
